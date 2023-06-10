@@ -1,0 +1,25 @@
+{% extends './base.html' %}
+{% block title %} Home Page {% endblock %}
+{%block body%}
+<h1>This is Home Page</h1>
+<table class="container">
+    <tr>
+      <th>S. No.</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Can vote</th>
+    </tr>
+    {% for people in peoples %}
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{people.name}}</td>
+      <td>{{people.age}}</td>
+      {% if people.age > 18 %}
+      <td style="background-color: green;">Can Vote</td>
+      {% else %}
+      <td style="background-color: red;">Cannot Vote</td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

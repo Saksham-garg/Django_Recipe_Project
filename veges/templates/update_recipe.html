@@ -1,0 +1,38 @@
+{% extends 'base.html' %} 
+{% block title %} Recipes {% endblock %} 
+
+{% block body %}
+
+<div class="container rounded mt-5 border p-4 shadow-lg mx-auto w-75">
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2>Recipes</h2>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Recipe Name</label>
+      <input
+        type="text"
+        required
+        class="form-control"
+        name="recipe_name"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+        value="{{recipe.recipe_name}}"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label"
+        >Recipe Description</label
+      >
+      <textarea class="form-control" required name="recipe_desc">{{recipe.recipe_desc}}</textarea>
+    </div>
+    <div class="mb-3">
+      <input class="form-control" type="file" name="recipe_image" class="form-check-input" id="exampleCheck1" />
+    </div>
+    <button type="submit" class="btn btn-primary w-100">Update Recipe</button>
+  </form>
+</div>
+
+</div>
+
+{% endblock %}
