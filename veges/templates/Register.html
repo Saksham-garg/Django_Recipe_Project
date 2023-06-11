@@ -1,0 +1,68 @@
+{% extends 'base.html' %} 
+{% block title %} Recipes {% endblock %} 
+
+{% block body %}
+
+<div class="container rounded mt-5 border p-4 shadow-lg mx-auto w-75">
+
+  <form method="post">
+    {% csrf_token %}
+    <h2>Register</h2>
+    <div class="mb-3">
+    {% if messages %}
+      
+        <div class="alert alert-primary" role="alert">
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+        </div>
+        
+    {% endif %}
+       
+      <label for="exampleInputEmail1" class="form-label">First Name</label>
+      <input
+        type="text"
+        required
+        class="form-control"
+        name="first_name"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Last name</label>
+      <input
+        type="text"
+        required
+        class="form-control"
+        name="last_name"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">UserName</label>
+      <input
+        type="text"
+        required
+        class="form-control"
+        name="username"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input type="password" required name="password" class="form-control" id="exampleInputPassword1">
+      </div>
+    <div class="mb-3">
+        <p>Already have an account? <a href="/Login">Login</a></p>
+      </div>
+    
+    <button type="submit" class="btn btn-primary w-100">Register</button>
+  </form>
+</div>
+
+
+
+{% endblock %}

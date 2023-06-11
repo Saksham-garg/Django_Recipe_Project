@@ -20,12 +20,16 @@ from home.views import *
 from veges.views import *
 from django.conf.urls.static import static
 from django.conf import settings
+from accounts.views import *
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('delete-recipe/<id>',deleteRecipe,name='deleteRecipe'),
     path('update-recipe/<id>',updateRecipe,name='updateRecipe'),
     path('recipes/',recipes,name='recipes'),
+    path('login_page/',login_page,name='login_page'),
+    path('logout_page/',logout_page,name='logout_page'),
+    path('Register/',Register,name='Register'),
     path('',home,name = 'home'),
     path('about/',about,name='about'),
     path('admin/', admin.site.urls),

@@ -8,6 +8,16 @@
     <title>{% block title %} {% endblock %}</title>
 </head>
 <body>
+    <nav class="navbar bg-subtle shadow-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand">My Recipes</a>
+          {% if request.user.is_authenticated %}
+          <button class="btn btn-outline-dark" type="submit"><a href="/logout_page/">Logout</a></button>
+            {% else %}
+            <button class="btn btn-dark btn-outline-dark" type="submit"><a  href="/login_page/">Login</a></button>
+            {% endif %}
+        </div>
+      </nav>
     {% block body %}
 
     {% endblock %}
